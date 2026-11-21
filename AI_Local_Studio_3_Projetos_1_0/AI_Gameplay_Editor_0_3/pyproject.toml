@@ -1,0 +1,12 @@
+[project]
+name = "ai-gameplay-editor"
+version = "0.3.0"
+description = "Editor local de gameplays: modo completo e melhores momentos"
+requires-python = ">=3.10"
+dependencies = []
+
+[tool.setuptools.packages.find]
+include = ["gameplay_editor*"]
+
+[tool.setuptools.package-data]
+gameplay_editor = ["assets/*.html"]

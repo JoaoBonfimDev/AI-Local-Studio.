@@ -1,0 +1,28 @@
+test_cancel_before_start (test_media.CancellationTests.test_cancel_before_start) ... ok
+test_analysis_nvdec (test_media.MediaTests.test_analysis_nvdec) ... ok
+test_analyze_and_select_real_video_cpu (test_media.MediaTests.test_analyze_and_select_real_video_cpu) ... ok
+test_cpu_full_episode_pixels_audio_duration (test_media.MediaTests.test_cpu_full_episode_pixels_audio_duration) ... ok
+test_nvdec_nvenc_full_episode (test_media.MediaTests.test_nvdec_nvenc_full_episode) ... ok
+test_short_fractional_cut_preserves_frames (test_media.MediaTests.test_short_fractional_cut_preserves_frames) ... ok
+test_ten_bit_and_no_audio (test_media.MediaTests.test_ten_bit_and_no_audio) ... ok
+test_vfr_preserves_frame_sequence_and_cadence (test_media.MediaTests.test_vfr_preserves_frame_sequence_and_cadence) ... ok
+test_durations_and_maximum (test_selection.SelectionTests.test_durations_and_maximum) ... ok
+test_edits_reject_duplicate_reversed_nan_and_outside (test_selection.SelectionTests.test_edits_reject_duplicate_reversed_nan_and_outside) ... ok
+test_exact_ten_minutes (test_selection.SelectionTests.test_exact_ten_minutes) ... ok
+test_fuzz_plans (test_selection.SelectionTests.test_fuzz_plans) ... ok
+test_less_than_ten_episodes_is_valid (test_selection.SelectionTests.test_less_than_ten_episodes_is_valid) ... ok
+test_short_source_rejected (test_selection.SelectionTests.test_short_source_rejected) ... ok
+test_silent_static_does_not_get_selected (test_selection.SelectionTests.test_silent_static_does_not_get_selected) ... ok
+test_ten_unique_chronological_episodes (test_selection.SelectionTests.test_ten_unique_chronological_episodes) ... ok
+test_rejects_cross_site_requests (test_server.HandlerTests.test_rejects_cross_site_requests) ... ok
+test_rejects_nonlocal_host (test_server.HandlerTests.test_rejects_nonlocal_host) ... ok
+test_serves_ui_and_status (test_server.HandlerTests.test_serves_ui_and_status) ... ok
+test_validates_input_before_starting_job (test_server.HandlerTests.test_validates_input_before_starting_job) ... ok
+test_cross_origin_and_bad_host_denied (test_server.ServerTests.test_cross_origin_and_bad_host_denied) ... skipped 'Defina RUN_HTTP_TESTS=1 em ambiente com sockets locais liberados.'
+test_mutation_without_token_is_denied (test_server.ServerTests.test_mutation_without_token_is_denied) ... skipped 'Defina RUN_HTTP_TESTS=1 em ambiente com sockets locais liberados.'
+test_ui_and_authenticated_status (test_server.ServerTests.test_ui_and_authenticated_status) ... skipped 'Defina RUN_HTTP_TESTS=1 em ambiente com sockets locais liberados.'
+
+----------------------------------------------------------------------
+Ran 23 tests in 31.530s
+
+OK (skipped=3)

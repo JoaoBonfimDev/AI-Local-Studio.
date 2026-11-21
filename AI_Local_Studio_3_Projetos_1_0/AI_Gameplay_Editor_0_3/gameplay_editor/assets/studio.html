@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a0c15">
+  <title>AI Gameplay Editor — Render Studio</title>
+  <style>
+    :root { color-scheme:dark; --bg:#090b14; --panel:#131726; --line:#293047; --muted:#a4abc4; --white:#f7f8fe; --purple:#9273ff; --aqua:#70e8d9; --good:#5dd4ad; }
+    * { box-sizing:border-box; }
+    body { background:var(--bg); margin:0; color:var(--white); font:15px/1.55 Inter,Segoe UI,Arial,sans-serif; min-height:100vh; overflow-x:hidden; }
+    body::before { content:""; position:fixed; inset:-20% -10%; pointer-events:none; z-index:-1; background:radial-gradient(circle at 78% 16%,rgba(106,79,222,.21),transparent 31%),radial-gradient(circle at 5% 83%,rgba(21,180,164,.12),transparent 32%); }
+    button { font:inherit; cursor:pointer; }
+    .page { max-width:1250px; margin:0 auto; padding:34px 42px 40px; }
+    header { display:flex; justify-content:space-between; align-items:center; gap:20px; padding-bottom:42px; }
+    .brand { display:flex; align-items:center; gap:13px; }
+    .logo { display:grid; place-items:center; width:43px; height:43px; border:1px solid #836fe4; border-radius:14px; background:linear-gradient(140deg,#252244,#161c32); color:#d5ccff; font-size:22px; box-shadow:0 8px 30px #6248e026; }
+    .brandname { font-size:13px; font-weight:800; letter-spacing:2px; line-height:1.3; }
+    .brandcaption { color:var(--muted); font-size:11px; letter-spacing:2px; text-transform:uppercase; margin-top:3px; }
+    .header-right { display:flex; align-items:center; gap:12px; }
+    .private { border:1px solid #2a5c53; color:#a3f8d8; background:#102c2a; font-size:11px; letter-spacing:1px; border-radius:30px; padding:8px 13px; text-transform:uppercase; font-weight:800; }
+    .version { color:#9a9db7; font-weight:700; font-size:12px; }
+    .content { display:grid; grid-template-columns:minmax(0,1.8fr) minmax(300px,1fr); gap:24px; align-items:start; }
+    .eyebrow { display:flex; gap:9px; align-items:center; color:#b4a4ff; text-transform:uppercase; font-weight:800; letter-spacing:2.3px; font-size:11px; }
+    .eyebrow::before { content:""; width:20px; height:2px; background:var(--purple); }
+    h1 { font-size:clamp(33px,4vw,58px); line-height:1.06; letter-spacing:-2.6px; margin:15px 0 16px; max-width:670px; }
+    h1 span { color:#a690ff; }
+    .intro { color:#abb2c7; max-width:590px; line-height:1.7; margin:0 0 30px; font-size:14px; }
+    .glass { border:1px solid var(--line); background:linear-gradient(147deg,rgba(28,33,54,.94),rgba(15,19,34,.95)); box-shadow:0 25px 75px #00000022; border-radius:25px; }
+    .render-card { padding:27px 30px 28px; position:relative; overflow:hidden; }
+    .render-card::after { content:""; position:absolute; width:240px; height:240px; background:#6445e92a; filter:blur(78px); right:-80px; top:-90px; pointer-events:none; }
+    .card-title { display:flex; align-items:center; justify-content:space-between; gap:16px; position:relative; z-index:1; }
+    .card-title h2,aside h2 { margin:0; font-size:15px; font-weight:800; letter-spacing:.2px; }
+    .pill { display:inline-flex; align-items:center; gap:7px; border-radius:25px; padding:7px 10px; background:#292040; border:1px solid #564783; color:#d3c9ff; font-weight:800; font-size:11px; letter-spacing:.6px; }
+    .pulse { width:7px; height:7px; border-radius:50%; background:#af9aff; box-shadow:0 0 0 5px #9f8aff22; animation:breathe 1.8s infinite; }
+    .progress-main { display:flex; align-items:center; gap:34px; margin:32px 0; position:relative; z-index:1; }
+    .ring { --angle:0deg; width:201px; height:201px; display:grid; place-items:center; flex:0 0 auto; border-radius:50%; background:conic-gradient(from -90deg,var(--aqua) 0deg,#9b79ff var(--angle),#30334d var(--angle),#30334d 360deg); box-shadow:0 0 64px #9188ff17; }
+    .ring-inner { width:175px; height:175px; border-radius:50%; display:flex; flex-direction:column; align-items:center; justify-content:center; background:radial-gradient(circle,#1b2037,#111525 76%); }
+    .percentage { font-size:47px; font-weight:800; line-height:1; letter-spacing:-3px; font-variant-numeric:tabular-nums; }
+    .ring-label { font-size:10px; color:#9a9fbd; margin-top:12px; letter-spacing:1.8px; text-transform:uppercase; font-weight:800; }
+    .render-info { flex:1; min-width:0; }
+    .mini-label { color:#929bb7; font-size:11px; text-transform:uppercase; letter-spacing:1.3px; font-weight:800; }
+    .render-info h3 { font-size:22px; margin:8px 0 14px; line-height:1.25; letter-spacing:-.5px; }
+    .subline { color:#bac0d2; font-size:13px; word-break:break-word; }
+    .track { background:#292d44; height:8px; border-radius:99px; overflow:hidden; margin-top:17px; }
+    .track-fill { width:0%; height:100%; border-radius:99px; background:linear-gradient(90deg,#8c77ff,#6be8d5); transition:width .55s ease; box-shadow:0 0 20px #8d8aff88; }
+    .metrics { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; position:relative; z-index:1; }
+    .metric { padding:16px 17px; border:1px solid #313751; border-radius:15px; background:#101626ad; }
+    .metric strong { font-size:18px; font-weight:800; margin-top:4px; display:block; white-space:nowrap; font-variant-numeric:tabular-nums; }
+    .timeline { margin-top:23px; padding:22px 24px; }
+    .timeline-head { display:flex; align-items:center; justify-content:space-between; gap:18px; }
+    .tiny { color:#9da5bb; font-size:12px; }
+    .clips { display:flex; gap:3px; align-items:center; height:43px; margin:14px 0 6px; padding:2px 0; overflow:hidden; }
+    .clip { height:100%; min-width:3px; flex:1; border-radius:4px; background:#353d5e; transition:background .3s; }
+    .clip.done { background:linear-gradient(180deg,#79d9dc,#8274ed); }
+    .clip.active { background:#c2a7ff; box-shadow:0 0 12px #8c7bff; }
+    .clip-count { display:flex; justify-content:space-between; color:#929bb8; font-size:11px; }
+    aside { display:flex; flex-direction:column; gap:20px; }
+    .aside-card { padding:27px 25px; }
+    .steps { margin-top:25px; }
+    .step { display:grid; grid-template-columns:35px 1fr; gap:12px; min-height:79px; position:relative; }
+    .step:not(:last-child)::after { content:""; position:absolute; left:16px; top:36px; bottom:4px; width:1px; background:#384057; }
+    .step-no { width:33px; height:33px; display:grid; place-items:center; border:1px solid #353a53; background:#1d2336; border-radius:11px; color:#8290b0; font-size:12px; font-weight:800; position:relative; z-index:2; }
+    .step.active .step-no { color:#f3edff; background:#554296; border-color:#8063e7; box-shadow:0 0 20px #8c79ff35; }
+    .step.done .step-no { color:#7eedd9; border-color:#337f78; background:#17413c; }
+    .step-title { font-size:14px; font-weight:750; padding-top:2px; }
+    .step-detail { font-size:12px; color:#8e97ad; margin-top:2px; }
+    .summary-row { display:flex; justify-content:space-between; align-items:baseline; gap:20px; border-bottom:1px solid #2e344c; padding:12px 0; }
+    .summary-row:last-child { border:0; padding-bottom:0; }
+    .summary-row span { font-size:12px; color:#9fa7bd; }
+    .summary-row b { text-align:right; font-weight:750; font-size:13px; }
+    .file { margin-top:14px; padding:14px 15px; background:#101626; color:#adb8d5; border-radius:13px; word-break:break-all; font-size:12px; border:1px solid #303650; }
+    .buttons { display:flex; gap:10px; margin-top:15px; }
+    .btn { padding:10px 14px; background:#282b48; border:1px solid #454b6e; border-radius:10px; color:#e2e6fa; font-weight:700; font-size:12px; }
+    .btn:hover { border-color:#9989ef; background:#35375c; }
+    .btn:disabled { opacity:.4; cursor:not-allowed; }
+    footer { display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; color:#727b97; font-size:11px; padding:29px 3px 0; }
+    .error { color:#ffb4a9 !important; }
+    .good { color:#80eed0 !important; }
+    @keyframes breathe { 50% { box-shadow:0 0 0 8px #9f8aff11; } }
+    @media (max-width:930px) { .page{padding:25px 20px;} .content{grid-template-columns:1fr;} .intro{max-width:700px;} .progress-main{justify-content:center;} aside{display:grid;grid-template-columns:1fr 1fr;} }
+    @media (max-width:600px) { header{padding-bottom:28px;} .version{display:none;} .private{font-size:9px;padding:6px 9px;} h1{letter-spacing:-1.7px;} .render-card{padding:22px 18px;} .progress-main{flex-direction:column;align-items:stretch;} .ring{align-self:center;width:185px;height:185px;} .ring-inner{width:159px;height:159px;} .metrics{grid-template-columns:1fr 1fr;} .metrics .metric:last-child{grid-column:span 2;} aside{display:flex;} .timeline{padding:20px;} .brandname{font-size:11px;} }
+    @media (prefers-reduced-motion:reduce) { *,*::before,*::after { animation:none!important;transition:none!important; } }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true">✦</div>
+        <div><div class="brandname">AI GAMEPLAY EDITOR</div><div class="brandcaption">Render studio</div></div>
+      </div>
+      <div class="header-right"><span class="private">● 100% LOCAL</span><span class="version">ALPHA 0.3</span></div>
+    </header>
+    <div class="content">
+      <main>
+        <div class="eyebrow">Sua central de renderização</div>
+        <h1>Seu gameplay.<br><span>Qualidade em outro nível.</span></h1>
+        <p class="intro">Acompanhe a produção do seu vídeo em tempo real. Todos os cortes, cada segundo de progresso e o resultado final — direto no seu computador.</p>
+        <section class="glass render-card" aria-label="Progresso da renderização">
+          <div class="card-title"><h2>Renderização em andamento</h2><span class="pill"><span class="pulse"></span><span id="statusBadge">PREPARANDO</span></span></div>
+          <div class="progress-main">
+            <div class="ring" id="progressRing" role="progressbar" aria-label="Progresso geral estimado" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="ring-inner"><div class="percentage" id="progressNumber">0%</div><div class="ring-label">Progresso geral</div></div></div>
+            <div class="render-info"><div class="mini-label" id="stageLabel">PROCESSAMENTO</div><h3 id="statusMessage" aria-live="polite">Preparando seu vídeo...</h3><div class="subline" id="clipInfo">Aguardando início da renderização</div><div class="track"><div class="track-fill" id="trackFill"></div></div></div>
+          </div>
+          <div class="metrics">
+            <div class="metric"><div class="mini-label">Tempo decorrido</div><strong id="elapsed">00:00:00</strong></div>
+            <div class="metric"><div class="mini-label">Tempo restante</div><strong id="eta">Calculando...</strong></div>
+            <div class="metric"><div class="mini-label">Aceleração</div><strong id="engine">Detectando...</strong></div>
+          </div>
+        </section>
+        <section class="glass timeline" aria-label="Timeline dos cortes">
+          <div class="timeline-head"><h2>Timeline dos cortes</h2><span class="tiny"><b id="clipsDone">0</b> / <b id="clipsTotal">—</b> trechos</span></div>
+          <div class="clips" id="clipBars" aria-hidden="true"></div>
+          <div class="clip-count"><span>INÍCIO</span><span id="duration">DURAÇÃO —</span><span>FINAL</span></div>
+        </section>
+      </main>
+      <aside>
+        <section class="glass aside-card"><h2>Pipeline de produção</h2>
+          <div class="steps">
+            <div class="step active" data-step="preparing"><div class="step-no">01</div><div><div class="step-title">Preparação</div><div class="step-detail">Validando projeto e configurações</div></div></div>
+            <div class="step" data-step="rendering"><div class="step-no">02</div><div><div class="step-title">Renderização</div><div class="step-detail">Codificando os melhores momentos</div></div></div>
+            <div class="step" data-step="joining"><div class="step-no">03</div><div><div class="step-title">Montagem</div><div class="step-detail">Unindo cortes e finalizando o MP4</div></div></div>
+            <div class="step" data-step="completed"><div class="step-no">04</div><div><div class="step-title">Concluído</div><div class="step-detail">Arquivo pronto para assistir</div></div></div>
+          </div>
+        </section>
+        <section class="glass aside-card"><h2>Detalhes da exportação</h2>
+          <div class="summary-row"><span>Perfil</span><b id="profile">Carregando...</b></div>
+          <div class="summary-row"><span>Resolução</span><b id="resolution">—</b></div>
+          <div class="summary-row"><span>Codificador</span><b id="encoder">—</b></div>
+          <div class="summary-row"><span>Formato</span><b>H.264 · MP4</b></div>
+          <div class="summary-row"><span>Arquivo original</span><b id="input">—</b></div>
+          <div class="mini-label" style="margin-top:20px;">Destino final</div>
+          <div class="file" id="output">Carregando caminho...</div>
+          <div class="buttons"><button class="btn" id="copyButton" type="button">Copiar caminho</button><button class="btn" id="closeButton" type="button" disabled>Encerrar painel</button></div>
+        </section>
+      </aside>
+    </div>
+    <footer><span>AI GAMEPLAY EDITOR • Feito para suas gameplays</span><span>Processamento privado • Sem APIs pagas • O original permanece intacto</span></footer>
+  </div>
+  <script>
+    const $ = id => document.getElementById(id);
+    const fmt = seconds => {
+      if (seconds === null || seconds === undefined || !Number.isFinite(Number(seconds))) return 'Calculando...';
+      const t = Math.max(0, Math.round(Number(seconds)));
+      const d = n => String(n).padStart(2,'0');
+      return `${d(Math.floor(t/3600))}:${d(Math.floor(t%3600/60))}:${d(t%60)}`;
+    };
+    const stages = ['preparing','rendering','joining','completed'];
+    let last = null;
+    let barsCount = 0;
+    let activeRequest = false;
+    function buildClips(count) {
+      if (barsCount === count) return;
+      const root = $('clipBars');
+      root.replaceChildren();
+      const visible = Math.min(count,160);
+      for (let i=0;i<visible;i++) { const b=document.createElement('div'); b.className='clip'; root.appendChild(b); }
+      barsCount = count;
+    }
+    function render(s) {
+      last = s;
+      const percentage = Math.max(0,Math.min(100,Number(s.percent)||0));
+      $('progressNumber').textContent = `${percentage.toFixed(1)}%`;
+      $('progressRing').style.setProperty('--angle', `${percentage*3.6}deg`);
+      $('progressRing').setAttribute('aria-valuenow', percentage.toFixed(1));
+      $('trackFill').style.width = `${percentage}%`;
+      $('statusMessage').textContent = s.message || 'Processando...';
+      $('elapsed').textContent = fmt(s.elapsed);
+      $('eta').textContent = s.stage === 'completed' ? 'Finalizado' : fmt(s.eta);
+      $('engine').textContent = (s.encoder||'—').includes('GPU') ? 'RTX / NVENC' : (s.encoder||'Aguardando');
+      $('profile').textContent = s.quality_label || '—';
+      $('resolution').textContent = s.resolution || '—';
+      $('encoder').textContent = s.encoder || '—';
+      $('input').textContent = s.input || '—';
+      $('output').textContent = s.output || '—';
+      $('duration').textContent = `DURAÇÃO ${fmt(s.video_total)}`;
+      const clips = Number(s.clip_total)||0;
+      const current = Math.min(clips,Number(s.clip_index)||0);
+      $('clipsDone').textContent = current;
+      $('clipsTotal').textContent = clips;
+      buildClips(clips);
+      const shown = $('clipBars').children.length;
+      for (let i=0; i<shown; i++) {
+        const relative = Math.ceil((i+1)*clips/shown);
+        $('clipBars').children[i].className = `clip ${relative < current ? 'done' : relative === current && s.stage==='rendering' ? 'active' : s.stage==='completed' ? 'done' : ''}`;
+      }
+      const label = {preparing:'PREPARANDO',rendering:'CODIFICANDO',joining:'MONTAGEM FINAL',verifying:'VALIDANDO',completed:'FINALIZADO',error:'ERRO'}[s.stage]||'PROCESSANDO';
+      $('statusBadge').textContent = label;
+      $('stageLabel').textContent = s.stage === 'rendering' ? 'H.264 · ALTA FIDELIDADE' : 'AI GAMEPLAY EDITOR';
+      $('clipInfo').textContent = s.stage === 'rendering' ? `Trecho ${current} de ${clips} · ${Number(s.clip_percent||0).toFixed(1)}% deste corte` : s.stage === 'joining' ? 'Todos os cortes renderizados. Preparando MP4 final.' : s.stage === 'completed' ? 'Arquivo salvo com sucesso. Pronto para assistir.' : 'Aguarde enquanto organizamos seu projeto.';
+      const activeStage = s.stage === 'verifying' ? 'joining' : s.stage;
+      const activeIdx = stages.indexOf(activeStage);
+      document.querySelectorAll('.step').forEach(el => {
+        const idx=stages.indexOf(el.dataset.step);
+        el.className = `step ${idx<activeIdx ? 'done' : idx===activeIdx ? 'active' : ''}`;
+        if(s.stage==='completed') el.className='step done';
+      });
+      $('closeButton').disabled = !['completed','error'].includes(s.stage);
+      if(s.stage==='error') { $('statusMessage').classList.add('error'); $('statusBadge').classList.add('error'); }
+      if(s.stage==='completed') { $('statusMessage').classList.add('good'); $('statusBadge').classList.add('good'); }
+    }
+    async function poll() {
+      if(activeRequest || ['completed','error'].includes(last?.stage)) return;
+      activeRequest=true;
+      try {
+        const response=await fetch('/api/status',{cache:'no-store'});
+        if (!response.ok) throw new Error('Painel indisponível');
+        render(await response.json());
+      } catch(e) { $('statusMessage').textContent='Conexão com o editor perdida. Confira o terminal.'; }
+      finally {activeRequest=false;}
+    }
+    $('copyButton').addEventListener('click', async () => {
+      try { await navigator.clipboard.writeText(last?.output||''); $('copyButton').textContent='Copiado!'; setTimeout(()=>{$('copyButton').textContent='Copiar caminho';},1700); }
+      catch(e) { $('copyButton').textContent='Não foi possível copiar'; }
+    });
+    $('closeButton').addEventListener('click', async () => {
+      if (!['completed','error'].includes(last?.stage)) return;
+      try { await fetch('/api/close',{method:'POST'}); $('closeButton').textContent='Painel encerrado'; $('closeButton').disabled=true; }
+      catch(e) { $('closeButton').textContent='Encerre no terminal'; }
+    });
+    poll();
+    setInterval(poll,800);
+  </script>
+</body>
+</html>
