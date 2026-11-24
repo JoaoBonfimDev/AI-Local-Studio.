@@ -1,8 +1,0 @@
-__pycache__/
-*.py[cod]
-.venv/
-.pytest_cache/
-analise.json
-timeline_*.json
-gameplay_*.mp4
-*.writing

@@ -1,0 +1,34 @@
+test_cancel_running_process_promptly (test_studio.CoreTests.test_cancel_running_process_promptly) ... ok
+test_gameplay_no_artificial_duration_cap (test_studio.CoreTests.test_gameplay_no_artificial_duration_cap) ... ok
+test_highlights_variable_duration_disjoint_no_padding (test_studio.CoreTests.test_highlights_variable_duration_disjoint_no_padding) ... ok
+test_plan_chronology_uniqueness_and_bounds (test_studio.CoreTests.test_plan_chronology_uniqueness_and_bounds) ... ok
+test_quality_flags_are_encoder_specific (test_studio.CoreTests.test_quality_flags_are_encoder_specific) ... ok
+test_settings_reject_nonfinite_and_wrong_enums (test_studio.CoreTests.test_settings_reject_nonfinite_and_wrong_enums) ... ok
+test_csrf_host_origin_and_invalid_paths_denied (test_studio.HandlerTests.test_csrf_host_origin_and_invalid_paths_denied) ... ok
+test_loopback_server_socket (test_studio.HandlerTests.test_loopback_server_socket) ... skipped 'Windows sandbox blocks loopback connections: [WinError 10013] Foi feita uma tentativa de acesso a um soquete de uma maneira que ├® proibida pelas permiss├Áes de acesso'
+test_range_video_support (test_studio.HandlerTests.test_range_video_support) ... ok
+test_ui_and_token_protected_status (test_studio.HandlerTests.test_ui_and_token_protected_status) ... ok
+test_bad_pixel_format_diagnostic_includes_observed_values (test_studio.MediaTests.test_bad_pixel_format_diagnostic_includes_observed_values) ... ok
+test_cancel_resume_and_modified_original_rejected (test_studio.MediaTests.test_cancel_resume_and_modified_original_rejected) ... ok
+test_cpu_concat_audio_continuity_and_sync (test_studio.MediaTests.test_cpu_concat_audio_continuity_and_sync) ... ok
+test_default_twelve_minute_episode_real_media (test_studio.MediaTests.test_default_twelve_minute_episode_real_media) ... ok
+test_fallback_cpu (test_studio.MediaTests.test_fallback_cpu) ... ok
+test_flash_beep_sync_after_disjoint_cuts (test_studio.MediaTests.test_flash_beep_sync_after_disjoint_cuts) ... ok
+test_four_vertical_shorts_no_audio_effects_required (test_studio.MediaTests.test_four_vertical_shorts_no_audio_effects_required) ... ok
+test_fractional_frame_alignment (test_studio.MediaTests.test_fractional_frame_alignment) ... ok
+test_full_range_conversion_preserves_displayed_levels (test_studio.MediaTests.test_full_range_conversion_preserves_displayed_levels) ... ok
+test_full_range_source_all_three_modes_cpu_and_nvenc (test_studio.MediaTests.test_full_range_source_all_three_modes_cpu_and_nvenc) ... ok
+test_gpu_nvenc_and_nvdec_real (test_studio.MediaTests.test_gpu_nvenc_and_nvdec_real) ... ok
+test_import_scan_and_shared_cache (test_studio.MediaTests.test_import_scan_and_shared_cache) ... ok
+test_invalid_codec_and_corrupted_file_rejected (test_studio.MediaTests.test_invalid_codec_and_corrupted_file_rejected) ... ok
+test_manager_review_render_restore_and_cache_reuse (test_studio.MediaTests.test_manager_review_render_restore_and_cache_reuse) ... ok
+test_multiple_highlights_episodes (test_studio.MediaTests.test_multiple_highlights_episodes) ... ok
+test_no_audio (test_studio.MediaTests.test_no_audio) ... ok
+test_optional_short_captions_use_original_grouping (test_studio.MediaTests.test_optional_short_captions_use_original_grouping) ... ok
+test_original_not_overwritten_outputs_unique (test_studio.MediaTests.test_original_not_overwritten_outputs_unique) ... ok
+test_runtime_nvenc_failure_restarts_cpu_without_mixing (test_studio.MediaTests.test_runtime_nvenc_failure_restarts_cpu_without_mixing) ... ok
+
+----------------------------------------------------------------------
+Ran 29 tests in 83.276s
+
+OK (skipped=1)

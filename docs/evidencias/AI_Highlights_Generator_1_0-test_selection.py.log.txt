@@ -1,0 +1,13 @@
+test_durations_and_maximum (test_selection.SelectionTests.test_durations_and_maximum) ... ok
+test_edits_reject_duplicate_reversed_nan_and_outside (test_selection.SelectionTests.test_edits_reject_duplicate_reversed_nan_and_outside) ... ok
+test_exact_ten_minutes (test_selection.SelectionTests.test_exact_ten_minutes) ... ok
+test_fuzz_plans (test_selection.SelectionTests.test_fuzz_plans) ... ok
+test_less_than_ten_episodes_is_valid (test_selection.SelectionTests.test_less_than_ten_episodes_is_valid) ... ok
+test_short_source_rejected (test_selection.SelectionTests.test_short_source_rejected) ... ok
+test_silent_static_does_not_get_selected (test_selection.SelectionTests.test_silent_static_does_not_get_selected) ... ok
+test_ten_unique_chronological_episodes (test_selection.SelectionTests.test_ten_unique_chronological_episodes) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.066s
+
+OK

@@ -1,0 +1,13 @@
+test_full_discards_long_still_silent_segments (test_planner.TestPlanner.test_full_discards_long_still_silent_segments) ... ok
+test_full_does_not_empty_silent_source (test_planner.TestPlanner.test_full_does_not_empty_silent_source) ... ok
+test_full_preserves_speech_even_when_picture_still (test_planner.TestPlanner.test_full_preserves_speech_even_when_picture_still) ... ok
+test_highlights_no_activity (test_planner.TestPlanner.test_highlights_no_activity) ... ok
+test_highlights_no_fixed_total_duration (test_planner.TestPlanner.test_highlights_no_fixed_total_duration) ... ok
+test_highlights_preserve_separate_chronological_moments (test_planner.TestPlanner.test_highlights_preserve_separate_chronological_moments) ... ok
+test_merge (test_planner.TestPlanner.test_merge) ... ok
+test_timeline_validation (test_planner.TestPlanner.test_timeline_validation) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.001s
+
+OK

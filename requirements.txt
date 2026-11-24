@@ -1,0 +1,5 @@
+# Optional speech inference + telemetry. Core audiovisual engine is stdlib-only.
+# Install wheels in .venv with INSTALAR_IA.cmd; never compile native packages blindly.
+faster-whisper>=1.2.1,<2
+ctranslate2>=4.6,<5
+psutil>=6,<8
