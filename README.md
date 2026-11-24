@@ -1,236 +1,76 @@
-# AI Local Studio
+# AI Local Studio 2.0.2
 
-**Uma suíte de ferramentas inteligentes para edição automatizada de gameplays, geração de Shorts e criação de vídeos de melhores momentos.**
+Um único programa local para transformar gravações em **Shorts**, **gameplay editada** ou **episódios de Highlights**. Reutiliza o ranking do Shorts 1.1, os planejadores do Gameplay 0.3 e os conceitos de seleção, segurança e processamento sequencial do Highlights 1.0. O navegador controla um servidor Python em `127.0.0.1`.
 
-Desenvolvido em Python, o **AI Local Studio** reúne três projetos independentes que utilizam análise audiovisual, processamento local e aceleração por GPU para facilitar a produção de conteúdo de jogos.
+**Atualização 2.0.2:** campo Nome do jogo, pastas e MP4s com nomes próprios, arquivos técnicos separados e seleção explícita de GPU/NVENC antes da renderização. Veja [ATUALIZAR_2_0_2.md](docs/ATUALIZAR_2_0_2.md). Mantenha ambiente virtual, modelos e cache ao atualizar.
 
-O principal objetivo é automatizar etapas trabalhosas da edição de vídeos, permitindo que criadores de conteúdo dediquem mais tempo às gravações e menos tempo à edição manual.
+## Começar no Windows
 
-**100% local | Sem APIs pagas obrigatórias | Aceleração NVIDIA CUDA/NVENC**
+1. Extraia o ZIP para uma pasta nova e curta, como `E:\AI-Local-Studio`. Não extraia sobre a instalação antiga.
+2. Tenha Python 3.13 ou 3.14 instalado com Python no PATH e Tcl/Tk. O núcleo foi testado com **Python 3.14.7**.
+3. Dê dois cliques em **INSTALAR.cmd**. Ele cria `.venv`, tenta instalar wheels das dependências e verifica FFmpeg/FFprobe. Se os executáveis estiverem ausentes, baixa a distribuição gratuita por HTTPS para `tools/`.
+4. Dê dois cliques em **INICIAR.cmd**. Mantenha a janela aberta. O navegador abre em `http://127.0.0.1:8765/`.
+5. Selecione a gravação e a pasta de saída, informe o nome do jogo e escolha o modo e clique em **Analisar e selecionar momentos**.
+6. Revise os tempos e as caixas de aprovação. Use **Prévia** para gerar uma amostra reproduzível de até 60 segundos, inclusive de MKV.
+7. Clique em **Renderizar trechos aprovados**. Os resultados só são publicados como concluídos após validação completa.
 
----
+O programa não precisa de Work, ChatGPT, Codex, conta, chave ou API paga. Instalação de pacotes e download explícito do modelo precisam de internet inicialmente. A análise, seleção, transcrição com modelo existente e exportação funcionam localmente. Nenhuma gravação é enviada. As fontes de download usadas pelo instalador são PyPI e a distribuição FFmpeg da Gyan; o download opcional do modelo usa Hugging Face/Systran.
 
-## Os três projetos
+## Os três modos
 
-### 1. AI Shorts Generator — Local Studio 1.1
+| Modo | Saída | Seleção e apresentação |
+| --- | --- | --- |
+| Shorts | Até 4 MP4, 1080 × 1920, 30–60 s | Ranking original de seis critérios, categorias ação/comentário/observação, diversidade temporal e textual. Tela inteira centralizada sobre fundo desfocado, como na composição anterior. Legendas opcionais. |
+| Gameplay completa | Um MP4 horizontal, sem teto de duração | Remove somente longos períodos de baixa atividade e quase silêncio; mantém o vídeo inteiro se não houver remoção segura. |
+| Gameplay melhores momentos | Um MP4 horizontal, sem teto de duração | Atividade audiovisual, evidências de fala e expressões, contexto antes/depois e ordem cronológica. |
+| Highlights | 1–10 MP4 horizontais | Blocos relevantes ordenados cronologicamente; alvo padrão de 12 minutos, configurável inclusive acima de 15. Não repete intervalos nem acrescenta material apenas para preencher. |
 
-Ferramenta desenvolvida para identificar momentos interessantes em gravações de gameplay e transformá-los automaticamente em vídeos verticais.
+Pouco conteúdo pode produzir menos de quatro Shorts ou menos episódios de Highlights. Um último episódio abaixo do alvo é identificado no plano e pode ser rejeitado. Os modos horizontais mantêm enquadramento, resolução de fontes com dimensões pares, proporção e áudio original; sem legendas, títulos, logos, músicas, zoom ou efeitos. Veja [MODOS.md](docs/MODOS.md).
 
-**Principais funcionalidades:**
+## Transcrição e sua RTX 4060
 
-- Geração de até 4 Shorts por execução.
-- Análise de movimentação, áudio e falas.
-- Classificação de momentos de ação, comentários e observações.
-- Seleção de trechos com pontuação de relevância.
-- Transcrição local utilizando Faster-Whisper.
-- Suporte a aceleração CUDA em GPUs NVIDIA.
-- Renderização vertical em 1080 × 1920.
-- Legendas automáticas.
-- Interface local acessível pelo navegador.
-- Pré-visualização dos resultados.
-
-**Ideal para:** YouTube Shorts, Instagram Reels e TikTok.
-
-[Ver projeto AI Shorts Generator](./AI_Local_Studio_3_Projetos_1_0/AI_Shorts_Generator_1_1/)
-
-### 2. AI Gameplay Editor — Alpha 0.3
+O instalador tenta preparar Faster-Whisper/CTranslate2 usando somente wheels. Se faltar uma wheel para seu Python, ou a rede estiver indisponível, a edição audiovisual continua funcionando com **Transcrição desativada**. **INSTALAR_IA.cmd** repete a instalação sem alterar o Python global.
 
-Editor automatizado voltado para gravações longas de gameplay, permitindo reduzir trechos desnecessários e produzir vídeos organizados.
+Em **Falas, legendas e análise avançada**, selecione a pasta de um modelo Faster-Whisper existente, contendo `model.bin`, ou clique em **Baixar modelo gratuito**. Comece com `small`, lote 1 e CUDA automática/FP16. Ative a transcrição. A interface admite idioma automático, VAD, INT8/FP16 e lotes 1–4 quando suportados pela instalação.
 
-**Principais funcionalidades:**
+O mesmo modelo é utilizado por todos os modos; não há três modelos simultâneos. A transcrição roda em um processo separado, que termina e libera a VRAM antes da renderização. CUDA e NVENC são capacidades diferentes. Veja [GPU_CUDA.md](docs/GPU_CUDA.md).
 
-- Edição de gameplays completas.
-- Seleção automática de melhores momentos.
-- Análise audiovisual.
-- Remoção de períodos identificados como pouco relevantes.
-- Organização cronológica dos cortes.
-- Renderização com aceleração NVIDIA NVENC.
-- Perfis de exportação com qualidade elevada.
-- Progresso visual da renderização no navegador.
-- Suporte a gravações de longa duração.
+## Exportação e áudio
 
-**Ideal para:** vídeos completos, séries de gameplay e melhores momentos para YouTube.
+Formato final padrão: **MP4, H.264, yuv420p, AAC-LC, faststart**. NVENC é testado com uma codificação real. A opção inicial GPU NVIDIA — NVENC exige a GPU. GPU preferencial · fallback CPU permite libx264 quando necessário; o painel informa o codificador real. Equilibrado, Alta qualidade e Ultra usam opções próprias para cada encoder.
 
-[Ver projeto AI Gameplay Editor](./AI_Local_Studio_3_Projetos_1_0/AI_Gameplay_Editor_0_3/)
+O pipeline anterior de Highlights entregava FFV1/PCM em MKV. Esse caminho não é usado pela interface 2.0. Agora cada trecho é intermediado em NUT com H.264 e PCM; os timestamps e o comprimento do áudio são normalizados. A montagem copia o H.264 e codifica **uma única sequência AAC por episódio**, evitando reiniciar o encoder AAC em cada junção. Os intermediários PCM nunca são oferecidos como resultado final.
 
-### 3. AI Highlights Generator — 1.0
+Cada final passa por FFprobe, conferência de codecs, dimensões, duração, início e duração de A/V, faststart, DTS monotônico, lacunas de pacotes de áudio e **decodificação integral**. Cada MP4 possui relatório de validação na área técnica `.studio/`, separado da pasta dos vídeos. Somente após isso o arquivo recebe seu nome final e aparece como concluído.
 
-Ferramenta especializada em transformar gravações longas em uma sequência de vídeos horizontais de melhores momentos, preservando a apresentação original do jogo.
+## Cache, interrupção e retomada
 
-**Principais funcionalidades:**
+Análise, seleção e renderização são etapas separadas. O cache utiliza caminho, tamanho, mtime, amostras de conteúdo, versão do algoritmo e configurações de cada etapa. Trocar modo, destino, sensibilidade ou qualidade não invalida desnecessariamente áudio/movimento/transcrição. Trocar a amostragem visual só exige recalcular a análise visual; trocar modelo/faixa/idioma/VAD gera uma etapa de fala própria.
 
-- Geração de até 10 vídeos por execução.
-- Duração desejada de 10 a 15 minutos por vídeo.
-- Seleção de momentos relevantes da gameplay.
-- Organização cronológica dos acontecimentos.
-- Redução de repetições entre episódios.
-- Preservação do áudio original.
-- Nenhuma legenda, música ou efeito adicional.
-- Preservação do enquadramento e proporção originais.
-- Processamento local com FFmpeg.
-- Interface visual no navegador.
+**Interromper** cancela o processo ativo. **Retomar** recupera os blocos concluídos; o bloco/corte incompleto é refeito. Após reiniciar o programa, use **Recuperar última sessão**, depois **Retomar**. Apenas a sessão mais recente possui recuperação automática pela interface. A fonte deve permanecer com a mesma identidade. Arquivos intermediários de uma operação interrompida ficam em `.render/` na pasta de saída e podem consumir espaço.
 
-A quantidade de episódios depende do conteúdo disponível. O sistema não precisa gerar dez vídeos quando não houver material suficiente.
+O percentual corresponde à **etapa atual**, medido por segundos efetivamente processados, checkpoints ou progresso estruturado do FFmpeg. Não há percentual global artificial. ETA refere-se à etapa e pode não estar disponível no começo ou ao carregar um modelo. CPU/RAM aparecem quando psutil está instalado; GPU/VRAM usam nvidia-smi quando disponível.
 
-**Ideal para:** séries de melhores momentos, vídeos de gameplay e conteúdo de longa duração para YouTube.
+## Testes e estado real
 
-[Ver projeto AI Highlights Generator](./AI_Local_Studio_3_Projetos_1_0/AI_Highlights_Generator_1_0/)
+As melhorias 2.0.2 têm relatório próprio em [VALIDACAO_2_0_2.md](docs/VALIDACAO_2_0_2.md), incluindo exportação com nomes, preservação de arquivo existente e escolha de NVENC sem reanálise.
 
----
+A correção 2.0.1 e os testes com fonte full range nos três modos estão em [VALIDACAO_2_0_1.md](docs/VALIDACAO_2_0_1.md). O relatório VALIDACAO.md abaixo registra a validação inicial da versão 2.0.
 
-## Tecnologias utilizadas
+Execute **TESTAR.cmd**. São usados somente vídeos e áudios sintéticos. A suíte exercita os três seletores, renderização CPU, GPU real quando disponível, quatro Shorts, múltiplos episódios, ausência de áudio, continuidade, sincronização flash/beep, cache, retomada e proteção local.
 
-O conjunto dos projetos utiliza tecnologias como:
+**Limites desta entrega:** Faster-Whisper/CTranslate2 não estavam instalados no Python acessível no ambiente de desenvolvimento; a transcrição real e a instalação online dessas wheels não foram validadas aqui. O servidor iniciou, mas as conexões ao localhost foram bloqueadas pelo ambiente (WinError 10013 e timeout do navegador). Os handlers HTTP foram testados em memória; o fluxo visual completo e os seletores nativos ainda exigem conferência no Windows fora desse ambiente. NVENC, NVDEC/scale CUDA e mídia CPU foram testados na RTX 4060 presente. Consulte [VALIDACAO.md](docs/VALIDACAO.md) para números e evidências.
 
-| Tecnologia | Aplicação |
-|---|---|
-| Python | Desenvolvimento e automação |
-| FFmpeg / FFprobe | Análise, conversão, cortes e renderização |
-| OpenCV | Processamento e análise visual |
-| Faster-Whisper | Transcrição automática de áudio |
-| CTranslate2 | Execução otimizada de modelos de transcrição |
-| NVIDIA CUDA | Aceleração de tarefas compatíveis na GPU |
-| NVIDIA NVDEC | Decodificação acelerada de vídeo |
-| NVIDIA NVENC | Codificação acelerada de vídeo |
-| HTML, CSS e JavaScript | Interfaces locais no navegador |
-| Git e GitHub | Versionamento e distribuição |
+Seleção é heurística, sem compreensão multimodal do jogo ou identificação segura do locutor. Não há diarização/separação de voz implementada. HDR e fontes com rotação são recusados para evitar alterações silenciosas. Fontes VFR são normalizadas para o FPS médio informado; fontes CFR preservam sua taxa racional. Dimensões ímpares recebem no máximo um pixel de padding, sem crop. O H.264/AAC é uma conversão com perdas mesmo em Ultra.
 
-A utilização dessas tecnologias varia conforme o projeto e a configuração do computador.
+## Código e repositório
 
-## Estrutura do repositório
+Para novos trabalhos, os MP4s ficam em `Saída/Nome do jogo/Modo/`, com nomes como `GTA 6 - Shorts 01.mp4`. Planos, relatórios e temporários ficam em `Saída/Nome do jogo/.studio/`. Nomes repetidos recebem `(2)` sem sobrescrever. Sessões antigas preservam seus destinos.
 
-```text
-AI-Local-Studio/
-│
-├── README.md
-├── .gitignore
-│
-└── AI_Local_Studio_3_Projetos_1_0/
-    │
-    ├── AI_Shorts_Generator_1_1/
-    │   ├── aishorts/
-    │   ├── assets/
-    │   ├── docs/
-    │   ├── tests/
-    │   └── main.py
-    │
-    ├── AI_Gameplay_Editor_0_3/
-    │   ├── gameplay_editor/
-    │   ├── tests/
-    │   └── main.py
-    │
-    ├── AI_Highlights_Generator_1_0/
-    │   ├── highlights/
-    │   ├── web/
-    │   ├── tests/
-    │   ├── INSTALAR.cmd
-    │   ├── INICIAR.cmd
-    │   └── main.py
-    │
-    ├── LEIA_PRIMEIRO.md
-    ├── INSTALAR_HIGHLIGHTS.cmd
-    └── INICIAR_HIGHLIGHTS.cmd
-```
+`core/` contém análise/cache/transcrição/GPU/jobs; `modes/` contém os seletores; `render/` faz exportação e validação; `web/` serve uma única interface. `legacy/` preserva os módulos anteriores para rastreabilidade e reutilização. Os antigos servidores/exportadores não são iniciados pela aplicação 2.0 e sua documentação em `docs/historico/` descreve versões antigas.
 
-Os três aplicativos possuem código e documentação próprios, permitindo evolução independente.
+O ZIP não inclui modelos, vídeos, ambientes virtuais, ferramentas binárias ou caches. Nenhum push/merge foi realizado. Veja [GITHUB.md](docs/GITHUB.md) para atualizar o repositório existente na branch `dev/ai-local-studio-2.0`, preservando seu histórico.
 
-## Requisitos
+Autor do projeto: João Victor Bonfim de Oliveira — [JoaoBonfimDev](https://github.com/JoaoBonfimDev).
 
-- Windows 10 ou 11.
-- Python compatível com as dependências de cada projeto.
-- FFmpeg e FFprobe.
-- Espaço em disco para gravações e arquivos temporários.
-- GPU NVIDIA compatível, recomendada para aceleração.
-
-**Hardware utilizado durante o desenvolvimento:**
-
-- Processador: AMD Ryzen 7 5700X.
-- Placa de vídeo: NVIDIA GeForce RTX 4060 8 GB.
-- Memória RAM: 16 GB DDR4.
-
-O desempenho depende da duração, resolução e complexidade das gravações.
-
-## Instalação e execução
-
-Clone o repositório:
-
-```powershell
-git clone https://github.com/JoaoBonfimDev/AI-Local-Studio..git
-```
-
-Entre na pasta do projeto desejado.
-
-**AI Shorts Generator:**
-
-```powershell
-cd AI-Local-Studio\AI_Local_Studio_3_Projetos_1_0\AI_Shorts_Generator_1_1
-
-.\Instalar.cmd
-.\Executar.cmd
-```
-
-**AI Gameplay Editor:**
-
-```powershell
-cd AI-Local-Studio\AI_Local_Studio_3_Projetos_1_0\AI_Gameplay_Editor_0_3
-
-python main.py doctor
-```
-
-Consulte o README próprio do Gameplay Editor para os comandos de análise e renderização.
-
-**AI Highlights Generator:**
-
-```powershell
-cd AI-Local-Studio\AI_Local_Studio_3_Projetos_1_0\AI_Highlights_Generator_1_0
-
-.\INSTALAR.cmd
-.\INICIAR.cmd
-```
-
-Execute os comandos de cada projeto a partir de seu respectivo diretório. Para instruções mais detalhadas, consulte os arquivos README individuais.
-
-## Processamento local e privacidade
-
-O AI Local Studio foi desenvolvido para executar o processamento das gravações no próprio computador.
-
-Os vídeos não precisam ser enviados para serviços externos de edição ou transcrição.
-
-Modelos locais podem exigir downloads durante a configuração inicial. Depois de instalados, os componentes compatíveis podem operar sem APIs pagas.
-
-O projeto não exige uma conta de serviço de IA para processar os vídeos.
-
-## Estado de desenvolvimento
-
-O AI Local Studio está em evolução.
-
-A seleção automática utiliza técnicas de análise audiovisual, classificação heurística e, quando disponível, modelos locais de transcrição.
-
-Esses recursos não garantem compreensão completa de acontecimentos complexos, como humor, narrativa ou importância emocional de uma cena.
-
-As melhorias planejadas incluem:
-
-- Modelos multimodais locais.
-- Seleção contextual mais precisa.
-- Otimizações de desempenho na GPU.
-- Melhor identificação de comentários do criador.
-- Aprimoramentos das interfaces de edição.
-- Melhorias na organização e revisão dos cortes.
-
-## Sobre o projeto
-
-O AI Local Studio nasceu da necessidade de automatizar a edição de gravações longas de videogames, utilizando ferramentas acessíveis e sem dependência de APIs pagas.
-
-Além de seu uso na criação de conteúdo, o projeto representa uma experiência prática em desenvolvimento Python, processamento audiovisual, automação, integração de tecnologias e otimização de aplicações locais.
-
-## Desenvolvedor
-
-**João Victor Bonfim de Oliveira**
-
-Desenvolvedor em formação, com foco em Python, análise de dados, automação e aplicações de inteligência artificial.
-
-GitHub: [@JoaoBonfimDev](https://github.com/JoaoBonfimDev)
-
----
-
-**AI Local Studio — Transformando gameplays em conteúdo com automação e inteligência artificial local.**
+Para verificar inferência de fala de verdade com um modelo existente, execute **TESTAR_IA.cmd**. O teste gera fala sintética offline e informa se CUDA ou CPU foi utilizado; não foi executado no ambiente desta entrega.

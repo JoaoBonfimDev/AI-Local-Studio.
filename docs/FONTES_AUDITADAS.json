@@ -1,0 +1,434 @@
+[
+  {
+    "path": ".gitignore",
+    "bytes": 461,
+    "sha256": "c114298b0d55189471957ab28c7ea7349c36c1274025cc9630dce4d24bc2c9e5",
+    "lines": 41
+  },
+  {
+    "path": "AI_Gameplay_Editor_0_3/.gitignore",
+    "bytes": 99,
+    "sha256": "a5462c18887439c89907838d065c34f9cdeef19d9939846f229f9e4d4677e218",
+    "lines": 8
+  },
+  {
+    "path": "AI_Gameplay_Editor_0_3/gameplay_editor/__init__.py",
+    "bytes": 103,
+    "sha256": "370a5185d0631ae7914dd2aca5fba54812b16d70c2574f46fcd3e46738c3d670",
+    "lines": 3
+  },
+  {
+    "path": "AI_Gameplay_Editor_0_3/gameplay_editor/assets/studio.html",
+    "bytes": 18568,
+    "sha256": "54440c59a7bd63aadbc227e42bc015ee615135f224de208c1df50d4593ac1dfb",
+    "lines": 226
+  },
+  {
+    "path": "AI_Gameplay_Editor_0_3/gameplay_editor/media.py",
+    "bytes": 9728,
+    "sha256": "da87e5029c957ff31464395daf7ddf06611720a39fc358236b8e0c80903b40bf",
+    "lines": 259
+  },
+  {
+    "path": "AI_Gameplay_Editor_0_3/gameplay_editor/planner.py",
+    "bytes": 6407,
+    "sha256": "c41128dcde56c96e43f03a903c059c5580ac406dd6e8b161dc8d6f157f0ccd8b",
+    "lines": 158
+  },
+  {
+    "path": "AI_Gameplay_Editor_0_3/gameplay_editor/progress.py",
+    "bytes": 1844,
+    "sha256": "fa0fcfc944150474f1bc268f8d9f748aa3f6a7541f6df63bf580a741fce21e77",
+    "lines": 50
+  },
+  {
+    "path": "AI_Gameplay_Editor_0_3/gameplay_editor/render.py",
+    "bytes": 10962,
+    "sha256": "2eaa57e8d5f49908ab6ce8ae99739d95a6fd29bffae051a8abf7a9e00c61f067",
+    "lines": 236
+  },
+  {
+    "path": "AI_Gameplay_Editor_0_3/gameplay_editor/studio.py",
+    "bytes": 5717,
+    "sha256": "73f525d07918328de85ed494f9541dd286bcd65dcd1c09a0809376ffed38d651",
+    "lines": 142
+  },
+  {
+    "path": "AI_Gameplay_Editor_0_3/main.py",
+    "bytes": 10855,
+    "sha256": "0aa2defb0ad7090f2716f91cc03be09759da406c59d991920c3a1e3ed7f7d1ae",
+    "lines": 192
+  },
+  {
+    "path": "AI_Gameplay_Editor_0_3/pyproject.toml",
+    "bytes": 310,
+    "sha256": "83c71459bbbcde36eacf70ef1574d92cbd62f2d79a92ba7a14f837d78ff80421",
+    "lines": 12
+  },
+  {
+    "path": "AI_Gameplay_Editor_0_3/README.md",
+    "bytes": 12454,
+    "sha256": "e525a23373cc3ab508e4072f3a86a243a2706205abf2f1044403201ffb4aeb0c",
+    "lines": 175
+  },
+  {
+    "path": "AI_Gameplay_Editor_0_3/tests/test_gpu_progress.py",
+    "bytes": 2029,
+    "sha256": "a617e1a229df31cb645b0d6be9c609dd0e51faf70d710e8eb5f085ca1c547db4",
+    "lines": 50
+  },
+  {
+    "path": "AI_Gameplay_Editor_0_3/tests/test_integration.py",
+    "bytes": 7762,
+    "sha256": "316d8d41da8b5efd6beba6ba9bca77c970d1f90ba8263dfdfce62ef95677d532",
+    "lines": 180
+  },
+  {
+    "path": "AI_Gameplay_Editor_0_3/tests/test_planner.py",
+    "bytes": 2005,
+    "sha256": "6fbb91aa9fd679d1a9f0886b50159323545be780d3e91cd19a9d34888154d529",
+    "lines": 50
+  },
+  {
+    "path": "AI_Gameplay_Editor_0_3/tests/test_studio.py",
+    "bytes": 2156,
+    "sha256": "24d57822e3bc225c047379212e2392a25b5b15f0c4f3d2e76100f4d67a2a8d8c",
+    "lines": 49
+  },
+  {
+    "path": "AI_Highlights_Generator_1_0/highlights/__init__.py",
+    "bytes": 84,
+    "sha256": "511ec021b8a7a3feacf19744793c71477c9b9ef3b0c83db79261d628f03db561",
+    "lines": 2
+  },
+  {
+    "path": "AI_Highlights_Generator_1_0/highlights/dialog.py",
+    "bytes": 509,
+    "sha256": "e410ff3bead648c2c5af2d7c6a5713f0399c0a5c090b35c77325d47af06dad93",
+    "lines": 15
+  },
+  {
+    "path": "AI_Highlights_Generator_1_0/highlights/media.py",
+    "bytes": 11060,
+    "sha256": "422ef124e61ee1bf18617ddbcdb76e08092c1a88cc6bd1f6622d652ff56119df",
+    "lines": 219
+  },
+  {
+    "path": "AI_Highlights_Generator_1_0/highlights/selection.py",
+    "bytes": 8675,
+    "sha256": "3f586cfa55f003c149bf1e86836871b327c07f6c1e1951ed873b774b04e12e69",
+    "lines": 176
+  },
+  {
+    "path": "AI_Highlights_Generator_1_0/highlights/server.py",
+    "bytes": 9498,
+    "sha256": "65df5dc1c62f37361ccb4e8f9f054eaa4eb1d052c86ea4f41a00a940a9426c74",
+    "lines": 186
+  },
+  {
+    "path": "AI_Highlights_Generator_1_0/INICIAR.cmd",
+    "bytes": 176,
+    "sha256": "fd4f95b48664b5be80db0ca3a035de304362ea7e3eecb5a08f2a47db9c475ffa",
+    "lines": 10
+  },
+  {
+    "path": "AI_Highlights_Generator_1_0/INSTALACAO_WINDOWS.md",
+    "bytes": 8340,
+    "sha256": "a1a351f17c90dc0d70f6a1914f47fa6e8681aa32b3249fa927a82560a4816e0f",
+    "lines": 67
+  },
+  {
+    "path": "AI_Highlights_Generator_1_0/INSTALAR.cmd",
+    "bytes": 654,
+    "sha256": "227552e14beb2e9fdb6908ea5b3e4fc58bbda09b01d1e54a3533fcdfed9a3340",
+    "lines": 29
+  },
+  {
+    "path": "AI_Highlights_Generator_1_0/main.py",
+    "bytes": 905,
+    "sha256": "a6c0243136262ab255a5d029fb5d42420351f53cf455ab6d9cf9aea7f8a487bd",
+    "lines": 24
+  },
+  {
+    "path": "AI_Highlights_Generator_1_0/README.md",
+    "bytes": 1616,
+    "sha256": "3f898141a1d6c1216a189baf1c0b45e6800ca1b9972eb5b5c02ed34cb38c47c6",
+    "lines": 16
+  },
+  {
+    "path": "AI_Highlights_Generator_1_0/REFERENCIAS_DE_CODIGO.md",
+    "bytes": 2708,
+    "sha256": "3468b99e16e1211955f8733513fa0adfd88528a20c0203dbceb16333ae6f3744",
+    "lines": 19
+  },
+  {
+    "path": "AI_Highlights_Generator_1_0/requirements.txt",
+    "bytes": 14,
+    "sha256": "8f40ca44a22b1aa83e698b44fe63c246695b49eb7e4a12b9de93c2276c0d62f9",
+    "lines": 1
+  },
+  {
+    "path": "AI_Highlights_Generator_1_0/STATUS_DA_ENTREGA.md",
+    "bytes": 997,
+    "sha256": "d35227e0facd3cb218b934067b811965c00b7a5cd042c8c81d9414b6b33685c7",
+    "lines": 9
+  },
+  {
+    "path": "AI_Highlights_Generator_1_0/test_run.txt",
+    "bytes": 2705,
+    "sha256": "0bae9268062f449536d37e17460dba778bb774fa6a8c769f6cb23624055c978b",
+    "lines": 28
+  },
+  {
+    "path": "AI_Highlights_Generator_1_0/TESTAR.cmd",
+    "bytes": 264,
+    "sha256": "3222c171028468798615bc46c9c79a537d49f089c6f293d5f8ad9a09139b53b4",
+    "lines": 13
+  },
+  {
+    "path": "AI_Highlights_Generator_1_0/TESTES.md",
+    "bytes": 3377,
+    "sha256": "7fb51bd0ab0a5ee5b9c6b9fae29c18f100436a4d984efc3d451038fa4b4a6fb4",
+    "lines": 40
+  },
+  {
+    "path": "AI_Highlights_Generator_1_0/tests/test_media.py",
+    "bytes": 6447,
+    "sha256": "663ff65c2559cd2d98034413d5590d29e8adcfbd5668d570d4d42585d56509b6",
+    "lines": 131
+  },
+  {
+    "path": "AI_Highlights_Generator_1_0/tests/test_selection.py",
+    "bytes": 2713,
+    "sha256": "7e9942df7eccfffb5eeeddaf4c3f7352c789fcbb64ce126fa304a4703a88132d",
+    "lines": 70
+  },
+  {
+    "path": "AI_Highlights_Generator_1_0/tests/test_server.py",
+    "bytes": 4358,
+    "sha256": "94eb388a63fb4e0a0d64d56ee44dba25bb1d938f0774c19459141d85202d7977",
+    "lines": 108
+  },
+  {
+    "path": "AI_Highlights_Generator_1_0/web/index.html",
+    "bytes": 8277,
+    "sha256": "a08897c50f8852ed64062805a696bbef9082c9cd881e69e53115f34593c520c8",
+    "lines": 28
+  },
+  {
+    "path": "AI_Shorts_Generator_1_1/.gitignore",
+    "bytes": 170,
+    "sha256": "0352b3902d79aab51f336ccf2c5a21b1e3782eaa1c616647a8224cd6cc0115ef",
+    "lines": 19
+  },
+  {
+    "path": "AI_Shorts_Generator_1_1/aishorts/__init__.py",
+    "bytes": 85,
+    "sha256": "4b3758073636d9ab831cbbc3d7d57896a7a4d15c6bf3ba88773eebdbfd037925",
+    "lines": 2
+  },
+  {
+    "path": "AI_Shorts_Generator_1_1/aishorts/config.py",
+    "bytes": 2873,
+    "sha256": "aa714ca0bbc0859060c76a5df29f025effd0b0ecf272d6d28f257c06aa4103ce",
+    "lines": 49
+  },
+  {
+    "path": "AI_Shorts_Generator_1_1/aishorts/export.py",
+    "bytes": 2505,
+    "sha256": "a7c8ae2bab61a8328c202582a41c58c774c73bca78e609256f3adac3befa5924",
+    "lines": 57
+  },
+  {
+    "path": "AI_Shorts_Generator_1_1/aishorts/media.py",
+    "bytes": 1352,
+    "sha256": "f62b1e02161bebc5ac517bd97dca1139a9f739137e4464f6aaef1ce5b5cfb898",
+    "lines": 44
+  },
+  {
+    "path": "AI_Shorts_Generator_1_1/aishorts/pipeline.py",
+    "bytes": 8645,
+    "sha256": "bef6164a00c3e81bb57761ecdf4f6a1508752cc28dd52b910e75a77a05169f8f",
+    "lines": 120
+  },
+  {
+    "path": "AI_Shorts_Generator_1_1/aishorts/ranking.py",
+    "bytes": 13429,
+    "sha256": "795bcc82f579f73f05e5de56adc920d0feb5dc7aa41a626bc61b910f16b514fd",
+    "lines": 272
+  },
+  {
+    "path": "AI_Shorts_Generator_1_1/aishorts/render.py",
+    "bytes": 6500,
+    "sha256": "04c77a4e81641321ec1991b270cabab9110f98e6889ea35ea98a4c009d045cf4",
+    "lines": 123
+  },
+  {
+    "path": "AI_Shorts_Generator_1_1/aishorts/scan.py",
+    "bytes": 7857,
+    "sha256": "bab6c59dd461e4930139ba4d859d33bfcecabbd08739d8b708e37259b82e9079",
+    "lines": 120
+  },
+  {
+    "path": "AI_Shorts_Generator_1_1/aishorts/studio.py",
+    "bytes": 16569,
+    "sha256": "8a267371cae9c1bc0f5648b82dd8f04c508d0da6ca894af88276feebb3543a40",
+    "lines": 344
+  },
+  {
+    "path": "AI_Shorts_Generator_1_1/assets/studio.html",
+    "bytes": 22011,
+    "sha256": "4b63d8448266f7fe1cdd96b3f675ac7f2b77bb6ff1515aa0d16f5985e166b0d6",
+    "lines": 198
+  },
+  {
+    "path": "AI_Shorts_Generator_1_1/config.example.json",
+    "bytes": 483,
+    "sha256": "885f78260da30d3fc0b46ddea73ad61238513bca20b44f8a932dd27f7e53c4b6",
+    "lines": 21
+  },
+  {
+    "path": "AI_Shorts_Generator_1_1/docs/ESTRUTURA.txt",
+    "bytes": 807,
+    "sha256": "f6d7150e4888f622c0f5fbdfdc4a2ff3d4ee6f1b4448ebad77e7376f2ea2ebaf",
+    "lines": 33
+  },
+  {
+    "path": "AI_Shorts_Generator_1_1/docs/LIMITACOES.md",
+    "bytes": 4923,
+    "sha256": "4db2af47340d61c0341e3e0bd5216d721ceb28bb09b6bc4afa8586cd223ca04a",
+    "lines": 37
+  },
+  {
+    "path": "AI_Shorts_Generator_1_1/docs/MIGRACAO.md",
+    "bytes": 2724,
+    "sha256": "e3d7bfc1958fe90c130542b230ff5662bc04528becf8471e643a6b1d5b14faa7",
+    "lines": 20
+  },
+  {
+    "path": "AI_Shorts_Generator_1_1/docs/original_hashes.json",
+    "bytes": 654,
+    "sha256": "ac616c8c8650c1dd88d3a50207a855646c0627087a2fb7ac83943728210d9607",
+    "lines": 9
+  },
+  {
+    "path": "AI_Shorts_Generator_1_1/docs/TESTES.md",
+    "bytes": 3518,
+    "sha256": "c563c2112f8216d53f42e80f7b02f9fb51195b05f601537647bcccd068ec9eaf",
+    "lines": 28
+  },
+  {
+    "path": "AI_Shorts_Generator_1_1/Executar.cmd",
+    "bytes": 86,
+    "sha256": "34a41264628cd9e3637a33b76a611efd1f59a7e15df7324a91686917e37d989f",
+    "lines": 8
+  },
+  {
+    "path": "AI_Shorts_Generator_1_1/Instalar.cmd",
+    "bytes": 149,
+    "sha256": "6a6e16ec5e34efe95d53e2a4392c550cac04fd2b5984976f98fea5ce12487e51",
+    "lines": 12
+  },
+  {
+    "path": "AI_Shorts_Generator_1_1/main.py",
+    "bytes": 3758,
+    "sha256": "3b44a9b5468f70b09e7e89b234690a7b9d6127995fc9fb675c73c8f4d8c94de0",
+    "lines": 60
+  },
+  {
+    "path": "AI_Shorts_Generator_1_1/package_project.py",
+    "bytes": 2104,
+    "sha256": "8d81fe0a9367f91bc2eecb381c8e431e0237f05fb7d8438c43c1e480eec0a766",
+    "lines": 31
+  },
+  {
+    "path": "AI_Shorts_Generator_1_1/README.md",
+    "bytes": 15067,
+    "sha256": "2cc35973ebab8a7bedcfea6ab0319097946bde949bf38cf6d5538dd20d0ebd87",
+    "lines": 184
+  },
+  {
+    "path": "AI_Shorts_Generator_1_1/requirements.txt",
+    "bytes": 126,
+    "sha256": "25d40f9092ed932ffc81359304b30cb5a2e26bdfd5de65df7c75c734e04f129d",
+    "lines": 6
+  },
+  {
+    "path": "AI_Shorts_Generator_1_1/tests/smoke_media.py",
+    "bytes": 1887,
+    "sha256": "ee7e0e43c52c6097c621d0fabc6ac6ffcec38aa29b512dffd74c2d739f8e73f8",
+    "lines": 26
+  },
+  {
+    "path": "AI_Shorts_Generator_1_1/tests/smoke_pipeline.py",
+    "bytes": 1647,
+    "sha256": "31f8a0f32aff5b1388cddf6557c2b1ee08d483f25f4e87266f57618c34310127",
+    "lines": 19
+  },
+  {
+    "path": "AI_Shorts_Generator_1_1/tests/test_core.py",
+    "bytes": 7032,
+    "sha256": "f4063324d1e875ead349a91002340e3bba36bb12893608cc0912910ff6745ca4",
+    "lines": 114
+  },
+  {
+    "path": "AI_Shorts_Generator_1_1/tests/test_studio.py",
+    "bytes": 5616,
+    "sha256": "32e06f88962ecf86bc7bd01b575f089952ac8575735c5e41815f1a5022b03c8e",
+    "lines": 120
+  },
+  {
+    "path": "INICIAR_HIGHLIGHTS.cmd",
+    "bytes": 71,
+    "sha256": "d9430b34bb3bd287107c914b59eff02c3f6e7e33ecdf7c8b588c8448ee4c60ed",
+    "lines": 3
+  },
+  {
+    "path": "INSTALAR_HIGHLIGHTS.cmd",
+    "bytes": 72,
+    "sha256": "8d5d5d2a895ee85b9b040360e20f0e76eedd97542b358ed38a1cca0f34a2119d",
+    "lines": 3
+  },
+  {
+    "path": "LEIA_PRIMEIRO.md",
+    "bytes": 3351,
+    "sha256": "a8af91c388be2aceab045c559f9caf7952b639e94411fcda92464e0bda96e761",
+    "lines": 35
+  },
+  {
+    "path": "MANIFESTO_SHA256.json",
+    "bytes": 13014,
+    "sha256": "366b0d0c296d18df56791059e9d1d8128157c8de55cb99906a3ba5fce17b908e",
+    "lines": 366
+  },
+  {
+    "path": "Originais/AI_Gameplay_Editor_Alpha_0_3.zip",
+    "bytes": 35271,
+    "sha256": "704c48a21225f7e3344759e6790deb7bd58938793114289369811069bb09e8b0",
+    "archive_members": 18
+  },
+  {
+    "path": "Originais/AI_Shorts_Generator_Local_Studio_1_1.zip",
+    "bytes": 54190,
+    "sha256": "8ffe31f75da3d91768158d535e7cd6e642cb44325e44cdbdc9e49692a9d84889",
+    "archive_members": 27
+  },
+  {
+    "path": "README.md",
+    "bytes": 8540,
+    "sha256": "b4c27fe5015907dc379a5cab63bb016d484082b42c33fb75e82c7aa4f768c766",
+    "lines": 236
+  },
+  {
+    "path": "RELATORIO_DO_PACOTE.md",
+    "bytes": 3295,
+    "sha256": "3d021ce4d28e7a1ed21f6dd8cb3f818ceb232c97217dcf3fcd3e477afbd4f282",
+    "lines": 29
+  },
+  {
+    "path": "verificar_integridade.py",
+    "bytes": 1094,
+    "sha256": "f5212de2620c65cbf25d38e88c343f697ed3f0891e1be5c137aa8ca492129aba",
+    "lines": 33
+  }
+]

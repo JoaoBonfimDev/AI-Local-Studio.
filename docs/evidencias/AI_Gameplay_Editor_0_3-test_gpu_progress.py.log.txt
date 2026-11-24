@@ -1,0 +1,14 @@
+[scan/frames] NVDEC indisponível; usando decodificação na CPU.
+[scan/frames] Decodificação NVDEC/CUDA ativada (comparação de imagens ainda na CPU).
+
+[scan/frames] Falha no NVDEC; reiniciando a varredura visual pela CPU.
+test_auto_falls_back_to_cpu (test_gpu_progress.TestGpuFallback.test_auto_falls_back_to_cpu) ... ok
+test_auto_recovers_from_runtime_gpu_failure (test_gpu_progress.TestGpuFallback.test_auto_recovers_from_runtime_gpu_failure) ... ok
+test_forced_gpu_reports_missing_hardware (test_gpu_progress.TestGpuFallback.test_forced_gpu_reports_missing_hardware) ... ok
+test_elapsed_formats (test_gpu_progress.TestProgress.test_elapsed_formats) ... ok
+test_progress_percent_and_finish (test_gpu_progress.TestProgress.test_progress_percent_and_finish) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.002s
+
+OK

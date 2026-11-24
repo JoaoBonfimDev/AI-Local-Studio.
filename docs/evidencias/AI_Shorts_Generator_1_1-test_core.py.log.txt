@@ -1,0 +1,22 @@
+Confirmado: C:\Users\Joao\Documents\Codex\2026-11-22\new-chat-2\work\source\AI_Local_Studio_3_Projetos_1_0\AI_Shorts_Generator_1_1\.local\tests\tmplm8_kbn_\dest\Live - 0.mp4
+Confirmado: C:\Users\Joao\Documents\Codex\2026-11-22\new-chat-2\work\source\AI_Local_Studio_3_Projetos_1_0\AI_Shorts_Generator_1_1\.local\tests\tmplm8_kbn_\dest\Live - 1.mp4
+Confirmado: C:\Users\Joao\Documents\Codex\2026-11-22\new-chat-2\work\source\AI_Local_Studio_3_Projetos_1_0\AI_Shorts_Generator_1_1\.local\tests\tmplm8_kbn_\dest\Live - 2.mp4
+Confirmado: C:\Users\Joao\Documents\Codex\2026-11-22\new-chat-2\work\source\AI_Local_Studio_3_Projetos_1_0\AI_Shorts_Generator_1_1\.local\tests\tmplm8_kbn_\dest\Live - 3.mp4
+Confirmado: C:\Users\Joao\Documents\Codex\2026-11-22\new-chat-2\work\source\AI_Local_Studio_3_Projetos_1_0\AI_Shorts_Generator_1_1\.local\tests\tmplm8_kbn_\dest\Live - 0 (2).mp4
+Confirmado: C:\Users\Joao\Documents\Codex\2026-11-22\new-chat-2\work\source\AI_Local_Studio_3_Projetos_1_0\AI_Shorts_Generator_1_1\.local\tests\tmplm8_kbn_\dest\Live - 1 (2).mp4
+Confirmado: C:\Users\Joao\Documents\Codex\2026-11-22\new-chat-2\work\source\AI_Local_Studio_3_Projetos_1_0\AI_Shorts_Generator_1_1\.local\tests\tmplm8_kbn_\dest\Live - 2 (2).mp4
+Confirmado: C:\Users\Joao\Documents\Codex\2026-11-22\new-chat-2\work\source\AI_Local_Studio_3_Projetos_1_0\AI_Shorts_Generator_1_1\.local\tests\tmplm8_kbn_\dest\Live - 3 (2).mp4
+test_action_can_be_found_when_microphone_track_is_silent (test_core.CoreTests.test_action_can_be_found_when_microphone_track_is_silent) ... ok
+test_cache_tracks_source_and_analysis_not_destination (test_core.CoreTests.test_cache_tracks_source_and_analysis_not_destination) ... ok
+test_caption_remap_and_low_confidence_exclusion (test_core.CoreTests.test_caption_remap_and_low_confidence_exclusion) ... ok
+test_commentary_without_action_is_eligible (test_core.CoreTests.test_commentary_without_action_is_eligible) ... ok
+test_diverse_selection_action_commentary_observation (test_core.CoreTests.test_diverse_selection_action_commentary_observation) ... ok
+test_export_no_overwrite_and_hash (test_core.CoreTests.test_export_no_overwrite_and_hash) ... ok
+test_lock_prevents_parallel_runs (test_core.CoreTests.test_lock_prevents_parallel_runs) ... ok
+test_no_candidates_for_silence_and_static_frames (test_core.CoreTests.test_no_candidates_for_silence_and_static_frames) ... ok
+test_whole_recording_and_limits (test_core.CoreTests.test_whole_recording_and_limits) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.171s
+
+OK
